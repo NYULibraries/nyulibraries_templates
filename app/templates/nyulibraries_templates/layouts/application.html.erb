@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= meta %>
+    <title><%= application_title %></title>
+    <%= application_stylesheet %>
+    <%= application_javascript %>
+  </head>
+  <%= content_tag 'body', onload: onload, class: body_class, id: body_id do %>
+    <%= prepend_body %>
+    <%= render 'common/header' %>
+    <%= render 'common/nav' %>
+    <div class="nyu-container">
+      <div class="col-sm-8">
+        <%= render 'common/alerts' %>
+        <%= render 'common/tabs' %>
+        <%= prepend_yield %>
+        <%= yield %>
+      </div>
+      <div class="col-sm-4">
+        <div id="sidebar" class="sidebar">
+          <%= render 'common/sidebar' %>
+        </div>
+      </div>
+    </div>
+    <%= render 'common/footer' %>
+  <% end %>
+</html>

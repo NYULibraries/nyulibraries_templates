@@ -1,0 +1,76 @@
+en:
+  footer:
+    footer_html: NYU Division of Libraries
+  application:
+    title_html: "Application Title (should be overridden in local application!)"
+  bobcat:
+    title_html: BobCat
+  workspace:
+    header_html: My Workspace
+    title_html: What is My Workspace?
+    guest_user_name_html: Guest
+  record:
+    flash:
+      actions:
+        create:
+          notice: Record was successfully created.
+        create_email:
+          notice: Records were successfully emailed.
+        update:
+          notice: Record was successfully updated.
+        destroy:
+          notice: Records successfully destroyed.
+    destroy_html: Delete
+    email_html: Email
+    print_html: Print
+    getit_html: Check Availability
+    ris_html: Download as RIS
+    bibtex_html: Download as BibTex
+    refworks_html: Push to RefWorks
+    endnote_html: Push to EndNote Web
+    easybib_html: Push to EasyBib
+    tag_list:
+      add: add
+      edit: edit
+      save: save
+      label_html: "Labeled as:"
+      placeholder: Add comma delimited labels
+      submit_html: Save labels
+    collection:
+      eshelf:
+        add_html: Add to Eshelf
+      delete:
+        title_html: Delete Records
+        confirmation_html: Are you sure you want to delete these records?
+      email:
+        subject: BobCat results
+        title_html: Email
+        submit_html: Send
+        to_address_html: Send to
+        format_html: with format
+        options:
+          brief: Brief
+          medium: Medium
+          full: Full
+      print:
+        title_html: Print
+        options:
+          brief: Brief
+          medium: Medium
+          full: Full
+      export:
+        title_html: Send/Share
+        options:
+          refworks: Push to RefWorks
+          endnote: Push to EndNote
+          easybib: Push to EasyBib
+          ris: Download as RIS
+          bibtex: Download as BibTex
+      per_page:
+        title_html: per page
+      sort:
+        title_html: Sort by
+        options:
+          created_at: date added
+          title_sort: title
+          author: author

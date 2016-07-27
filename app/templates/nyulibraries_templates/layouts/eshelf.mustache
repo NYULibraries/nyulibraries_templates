@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{meta}}
+    <title>{{bobcat_title}}</title>
+    {{institutional_stylesheet}}
+    {{#print_stylesheet?}}
+    {{print_stylesheet}}
+    {{/print_stylesheet?}}
+    {{application_javascript}}
+  </head>
+  <body>
+    {{> common/header}}
+    {{> common/nav}}
+    <div class="nyu-container">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-10 eshelf-header hidden-xs">
+            <h1 class="hidden-xs"><span>e-Shelf</span></h1>
+            <span class="username hidden-xs">
+              for
+              {{#current_user_name}}{{current_user_name}}{{/current_user_name}}
+              {{^current_user_name}}{{guest_user_name}}{{/current_user_name}}
+            </span>
+          </div>
+          {{#back_to}}
+            <div class="col-sm-2 back-to">{{back_to}}</div>
+          {{/back_to}}
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <div id="sidebar" class="navbar sidebar" data-spy="affix-top" data-offset-top="200">
+              {{> users/shelf}}
+            </div>
+          </div>
+          <div class="col-sm-9">
+            {{> common/alerts }}
+            {{yield}}
+          </div>
+        </div>
+      </div>
+    </div>
+    {{> common/footer}}
+  </body>
+</html>

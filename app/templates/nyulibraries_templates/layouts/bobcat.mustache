@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{meta}}
+    <title>{{bobcat_title}}</title>
+    {{institutional_stylesheet}}
+    {{application_javascript}}
+  </head>
+  <body>
+    {{> common/header}}
+    {{> common/nav}}
+    <div class="nyu-container">
+      <div class="col-sm-8">
+        {{> common/alerts }}
+        {{> common/tabs}}
+        {{yield}}
+      </div>
+      <div class="col-sm-4">
+        <div id="sidebar" class="sidebar">
+          {{> bobcat/sidebar}}
+        </div>
+      </div>
+    </div>
+    {{> bobcat/footer}}
+  </body>
+</html>

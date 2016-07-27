@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= meta %>
+    <title><%= bobcat_title %></title>
+    <%= institutional_stylesheet %>
+    <%= application_javascript %>
+  </head>
+  <body class="login">
+    <%= render "common/header" %>
+    <%= render "common/nav" %>
+    <section class="nyu-container container-fluid">
+      <%= render "common/alerts" %>
+      <%= yield %>
+    </section>
+    <%= render "common/footer" %>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<header id="header" class="header">
+  <div class="parent">
+    <%= link_to parent_home_url do %>
+      <span><%= parent_home_title %></span>
+    <% end %>
+  </div>
+
+  <div class="institution">
+    <%= link_to institution_home_url do %>
+      <span><%= institution_home_title %></span>
+    <% end %>
+    <span><%= institution.code %></span>
+  </div>
+
+  <div class="application">
+    <span><%= application_title %></span>
+  </div>
+</header>
