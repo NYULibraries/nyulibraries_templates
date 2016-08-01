@@ -15,6 +15,5 @@ gemspec
 group :test do
   gem 'pry'
   gem 'coveralls'
-  gem 'institutions'
   gem "test-unit"
 end
