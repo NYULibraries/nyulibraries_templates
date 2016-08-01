@@ -25,20 +25,5 @@ module NyulibrariesTemplates
       g.assets false
       g.helper false
     end
-
-    # private
-    # def collect_helpers
-    #   Dir[File.join(root, 'app', 'helpers', 'nyulibraries_templates', '*').to_s].each do |helper_path|
-    #     helper_module_for_path(helper_path)
-    #   end
-    # end
-    #
-    # def helper_module_for_path(filepath)
-    #   "NyulibrariesTemplates::#{camelize_filepath(filepath)}".constantize
-    # end
-    #
-    # def camelize_filepath(filepath)
-    #   File.basename(filepath).gsub(/\.[^\.]*$/).camelize
-    # end
   end
 end
