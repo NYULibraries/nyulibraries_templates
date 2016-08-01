@@ -18,6 +18,6 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/**/**/**/*"]
 
   s.add_dependency "rails", "~> 4.1"
-  s.add_dependency "nyulibraries_institutions", "~> 0.0.1"
+  s.add_dependency "nyulibraries_institutions", "~> 0.0.2"
 
 end

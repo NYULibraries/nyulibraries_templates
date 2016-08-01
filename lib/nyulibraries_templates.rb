@@ -1,3 +1,4 @@
+require 'nyulibraries_institutions'
 require 'nyulibraries_templates/version'
 
 module NyulibrariesTemplates
