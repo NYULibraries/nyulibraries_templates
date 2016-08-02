@@ -63,5 +63,20 @@ module NyulibrariesTemplates
     def delayed_jobs_running?
       (defined?(Delayed::Job) and Delayed::Job.count > 0)
     end
+
+    def onload
+    end
+
+    def body_class
+    end
+
+    def body_id
+    end
+
+    def prepend_body
+    end
+
+    def prepend_yield
+    end
   end
 end
