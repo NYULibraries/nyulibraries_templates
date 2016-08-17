@@ -16,4 +16,5 @@ group :test do
   gem 'pry'
   gem 'coveralls'
   gem "test-unit"
+  gem 'sqlite3'
 end
