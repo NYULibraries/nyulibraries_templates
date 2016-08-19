@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
 
-  mount NyulibrariesTemplates::Engine => "/restaurant_menu"
+  mount NyulibrariesTemplates::Engine => "/nyulibraries_templates"
 end
