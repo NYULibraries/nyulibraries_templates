@@ -1,7 +1,7 @@
 module NyulibrariesTemplates
   module ApplicationHelper
     # This engine
-    def nyulibraries_templates
+    def nyulibraries_templates_engine
       ::Rails::Engine.subclasses.map(&:instance).find do |railtie|
         railtie.class.name.eql? NyulibrariesTemplates::Engine.name
       end
@@ -9,7 +9,7 @@ module NyulibrariesTemplates
 
     # Root of this engine
     def nyulibraries_templates_root
-      nyulibraries_templates.root unless nyulibraries_templates.blank?
+      nyulibraries_templates_engine.root unless nyulibraries_templates_engine.blank?
     end
 
     # Application title
