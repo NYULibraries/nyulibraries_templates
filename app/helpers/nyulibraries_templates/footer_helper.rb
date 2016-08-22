@@ -25,7 +25,7 @@ module NyulibrariesTemplates
 
     # Using Crazyegg? Only in production! and when CRAZYEGG env var is set
     def crazyegg?
-      Rails.env.production? && ENV["CRAZYEGG"]
+      ENV["CRAZYEGG"] && Rails.env.production?
     end
 
     def footer_html
