@@ -61,22 +61,6 @@ describe NyulibrariesTemplates::ApplicationHelper do
     it { is_expected.to include csrf }
   end
 
-  describe "institution_home_title" do
-    pending
-  end
-
-  describe "institution_home_url" do
-    pending
-  end
-
-  describe "parent_home_title" do
-    pending
-  end
-
-  describe "parent_home_url" do
-    pending
-  end
-
   describe "delayed_jobs_running?" do
     subject{ helper.delayed_jobs_running? }
     context "Delayed::Job not defined" do

@@ -39,26 +39,6 @@ module NyulibrariesTemplates
       csrf_meta_tags
     end
 
-    def institution_home_title
-      views["breadcrumbs"]["title"]
-    end
-
-    def institution_home_url
-      views["breadcrumbs"]["url"]
-    end
-
-    def parent_home_title
-      (current_institution.link_to_parent.present?) ? institutions[current_institution.link_to_parent.to_sym].views["breadcrumbs"]["title"] : institution_home_title
-    rescue NoMethodError
-      institution_home_title
-    end
-
-    def parent_home_url
-      (current_institution.link_to_parent.present?) ? institutions[current_institution.link_to_parent.to_sym].views["breadcrumbs"]["url"] : institution_home_url
-    rescue NoMethodError
-      institution_home_url
-    end
-
     # Return true if delayed_jobs gem has any jobs running
     def delayed_jobs_running?
       (defined?(Delayed::Job) and Delayed::Job.count > 0)
