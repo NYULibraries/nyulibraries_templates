@@ -17,6 +17,7 @@ module NyulibrariesTemplates
         include NyulibrariesTemplates::NavHelper
         include NyulibrariesTemplates::TabsHelper
         include NyulibrariesTemplates::WorkspaceHelper
+        include NyulibrariesTemplates::InstitutionIntegrationHelper
       end
     end
 
