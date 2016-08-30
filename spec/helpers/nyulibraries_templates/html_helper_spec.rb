@@ -345,6 +345,12 @@ describe NyulibrariesTemplates::HtmlHelper do
       it { is_expected.to eq "icons-famfamfam-arrow_up" }
     end
 
+    context "with symbol key in yaml as string" do
+      let(:key){ :sort_asc }
+
+      it { is_expected.to eq "icons-famfamfam-arrow_up" }
+    end
+
     context "with key not in yaml" do
       let(:key){ "something_else" }
 

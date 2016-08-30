@@ -8,6 +8,7 @@ require 'rspec/rails'
 require 'rspec-html-matchers'
 require "support/shared_examples/truthy_iff_production"
 require "support/shared_contexts/include_institution_helpers"
+require "support/shared_contexts/login_contexts"
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

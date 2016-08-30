@@ -11,7 +11,7 @@ module NyulibrariesTemplates
 
     # modified from bootstrap-sass gem
     def load!
-      register_rails_engine
+      register_rails_engine if rails?
       warn_institution_version unless institutions_included?
     end
 
@@ -21,6 +21,10 @@ module NyulibrariesTemplates
       elsif !institution_version_required?
         warn "NyulibrariesInstitutions is defined with version < #{MAJOR_VERSION_REQUIRED}. Install gem 'nyulibraries_institutions' version >= #{MAJOR_VERSION_REQUIRED} to use institution functionality. Otherwise, layouts default to NYU."
       end
+    end
+
+    def rails?
+      defined?(::Rails)
     end
 
     private

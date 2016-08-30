@@ -34,6 +34,29 @@ module NyulibrariesTemplates
       end
     end
 
+    def institution_breadcrumb
+      return unless institutions_included? && institution_views.try(:[], "breadcrumbs")
+      link_to(institution_views["breadcrumbs"]["title"], institution_views["breadcrumbs"]["url"])
+    end
+
+    # Ensure there is always a bobcat url to show even if it isn't set anywhere
+    def bobcat_breadcrumb_base_url
+      if institutions_included?
+        current_institution.try(:bobcat_url) || default_institution_data["bobcat_url"]
+      else
+        default_institution_data["bobcat_url"]
+      end
+    end
+
+    # Ensure there is always an alias to show even if it isn't set anywhere
+    def bobcat_breadcrumb_alias
+      if institutions_included?
+        current_institution.try(:bobcat_alias) || institution_views.try(:[], "dir") || default_institution_data["bobcat_alias"]
+      else
+        default_institution_data["bobcat_alias"]
+      end
+    end
+
     private
 
     def get_parent_home_title
