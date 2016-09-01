@@ -275,33 +275,6 @@ describe NyulibrariesTemplates::HtmlHelper do
     end
   end
 
-  # describe "page_entries_info_sunspot" do
-  #   subject{ helper.page_entries_info_sunspot(sunspot_response) }
-  #   let(:response){ double FakeSunspotResponse, results: results, total: total }
-  #   let(:results){ double FakeSunspotResults, count: count, offset: offset }
-  #   let(:total){ 1000 }
-  #   let(:count){ 100 }
-  #   let(:offset){ 300 }
-  #   let(:fake_response_klass) do
-  #     Class.new do
-  #       def results; end
-  #       def total; end
-  #     end
-  #   end
-  #   let(:fake_results_klass) do
-  #     Class.new do
-  #       def count; end
-  #       def offset; end
-  #     end
-  #   end
-  #   before do
-  #     stub_const("FakeSunspotResponse", fake_response_klass)
-  #     stub_const("FakeSunspotResults", fake_results_klass)
-  #   end
-  #
-  #   pending
-  # end
-
   describe "tooltip_tag" do
     subject{ helper.tooltip_tag(content, title) }
 
@@ -338,6 +311,7 @@ describe NyulibrariesTemplates::HtmlHelper do
         "sort_asc" => "icons-famfamfam-arrow_up",
       }
     end
+    before { allow(helper).to receive(:icons_info).and_return icons_info }
 
     context "with key in yaml" do
       let(:key){ "sort_asc" }
@@ -360,38 +334,87 @@ describe NyulibrariesTemplates::HtmlHelper do
 
   describe "icons_info" do
     subject{ helper.icons_info }
+    context "with client icons" do
+      include_context "stub client icons"
+      let(:client_icons) do
+        {
+          "logout" => "icons-famfamfam-lock_override",
+          "addition" => "icon-added",
+        }
+      end
 
-    it { is_expected.to eq ({
-      "sort_desc" => "icons-famfamfam-arrow_down",
-      "sort_asc" => "icons-famfamfam-arrow_up",
-      "info" => "icons-famfamfam-information",
-      "help" => "icons-famfamfam-help",
-      "show" => "icons-famfamfam-magnifier",
-      "back" => "icons-famfamfam-arrow_undo",
-      "add" => "icons-famfamfam-add",
-      "edit" => "icons-famfamfam-wrench",
-      "login" => "icons-famfamfam-lock_open",
-      "logout" => "icons-famfamfam-lock_override",
-      "addition" => "icon-added",
-    }) }
+      it { is_expected.to eq ({
+        "sort_desc" => "icons-famfamfam-arrow_down",
+        "sort_asc" => "icons-famfamfam-arrow_up",
+        "info" => "icons-famfamfam-information",
+        "help" => "icons-famfamfam-help",
+        "show" => "icons-famfamfam-magnifier",
+        "back" => "icons-famfamfam-arrow_undo",
+        "add" => "icons-famfamfam-add",
+        "edit" => "icons-famfamfam-wrench",
+        "login" => "icons-famfamfam-lock_open",
+        "logout" => "icons-famfamfam-lock_override",
+        "addition" => "icon-added",
+      }) }
+    end
+
+    context "without client icons" do
+      it { is_expected.to eq ({
+        "sort_desc" => "icons-famfamfam-arrow_down",
+        "sort_asc" => "icons-famfamfam-arrow_up",
+        "info" => "icons-famfamfam-information",
+        "help" => "icons-famfamfam-help",
+        "show" => "icons-famfamfam-magnifier",
+        "back" => "icons-famfamfam-arrow_undo",
+        "add" => "icons-famfamfam-add",
+        "edit" => "icons-famfamfam-wrench",
+        "login" => "icons-famfamfam-lock_open",
+        "logout" => "icons-famfamfam-lock",
+      }) }
+    end
   end
 
   describe "icons_file" do
     subject{ helper.icons_file }
 
-    it { is_expected.to eq ({
-      "sort_desc" => "icons-famfamfam-arrow_down",
-      "sort_asc" => "icons-famfamfam-arrow_up",
-      "info" => "icons-famfamfam-information",
-      "help" => "icons-famfamfam-help",
-      "show" => "icons-famfamfam-magnifier",
-      "back" => "icons-famfamfam-arrow_undo",
-      "add" => "icons-famfamfam-add",
-      "edit" => "icons-famfamfam-wrench",
-      "login" => "icons-famfamfam-lock_open",
-      "logout" => "icons-famfamfam-lock_override",
-      "addition" => "icon-added",
-    }) }
+    context "with client icons" do
+      include_context "stub client icons"
+      let(:client_icons) do
+        {
+          "logout" => "icons-famfamfam-lock_override",
+          "addition" => "icon-added",
+        }
+      end
+
+      it { is_expected.to eq ({
+        "sort_desc" => "icons-famfamfam-arrow_down",
+        "sort_asc" => "icons-famfamfam-arrow_up",
+        "info" => "icons-famfamfam-information",
+        "help" => "icons-famfamfam-help",
+        "show" => "icons-famfamfam-magnifier",
+        "back" => "icons-famfamfam-arrow_undo",
+        "add" => "icons-famfamfam-add",
+        "edit" => "icons-famfamfam-wrench",
+        "login" => "icons-famfamfam-lock_open",
+        "logout" => "icons-famfamfam-lock_override",
+        "addition" => "icon-added",
+      }) }
+    end
+
+    context "without client icons" do
+      it { is_expected.to eq ({
+        "sort_desc" => "icons-famfamfam-arrow_down",
+        "sort_asc" => "icons-famfamfam-arrow_up",
+        "info" => "icons-famfamfam-information",
+        "help" => "icons-famfamfam-help",
+        "show" => "icons-famfamfam-magnifier",
+        "back" => "icons-famfamfam-arrow_undo",
+        "add" => "icons-famfamfam-add",
+        "edit" => "icons-famfamfam-wrench",
+        "login" => "icons-famfamfam-lock_open",
+        "logout" => "icons-famfamfam-lock",
+      }) }
+    end
   end
 
   describe "icon_tag" do

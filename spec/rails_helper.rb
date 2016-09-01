@@ -10,6 +10,7 @@ require "support/shared_examples/truthy_iff_production"
 require "support/shared_contexts/include_institution_helpers"
 require "support/shared_contexts/login_contexts"
 require "support/shared_contexts/root_url"
+require "support/shared_contexts/stub_client_icons"
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

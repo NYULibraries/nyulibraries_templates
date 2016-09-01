@@ -99,10 +99,13 @@ module NyulibrariesTemplates
       @icons_info ||= icons_file
     end
 
+    ENGINE_ICON_PATH = File.expand_path(File.join(__FILE__, "../../../../config/icons.yml"))
+    CLIENT_ICON_PATH = File.join(Rails.root, "config", "icons.yml")
+
     # Load the local icons first and then the app icons if exist
     def icons_file
-      @icons_file = YAML.load_file( File.join(nyulibraries_templates_root, "config", "icons.yml") )
-      @icons_file.merge!( YAML.load_file(File.join(Rails.root, "config", "icons.yml")) ) if File.exists? File.join(Rails.root, "config", "icons.yml")
+      @icons_file = YAML.load_file(ENGINE_ICON_PATH)
+      @icons_file.merge!(YAML.load_file(CLIENT_ICON_PATH)) if File.exists?(CLIENT_ICON_PATH)
       return @icons_file
     end
 
