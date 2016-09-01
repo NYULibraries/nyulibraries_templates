@@ -1,5 +1,12 @@
 # NyulibrariesTemplates
 
+[![NYU](https://github.com/NYULibraries/nyulibraries_stylesheets/blob/master/app/assets/images/nyulibraries_stylesheets/nyu.png)](https://dev.library.nyu.edu)
+[![Build Status](https://travis-ci.org/NYULibraries/nyulibraries_templates.svg)](https://travis-ci.org/NYULibraries/nnyulibraries_templates)
+[![Code Climate](https://codeclimate.com/github/NYULibraries/nyulibraries_templates/badges/gpa.svg)](https://codeclimate.com/github/NYULibraries/nyulibraries_templates)
+[![Coverage Status](https://coveralls.io/repos/github/NYULibraries/nnyulibraries_templates/badge.svg?branch=master)](https://coveralls.io/github/NYULibraries/nnyulibraries_templates?branch=master)
+
+## Usage
+
 ```
 gem 'nyulibraries_templates', git: "https://github.com/NYULibraries/nyulibraries_templates"
 ```
