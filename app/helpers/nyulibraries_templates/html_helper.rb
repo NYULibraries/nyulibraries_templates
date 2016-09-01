@@ -111,7 +111,7 @@ module NyulibrariesTemplates
 
     # Generate an icon tag with class key
     def icon_tag(key)
-      tag :i, class: icons(key)
+      content_tag :i, nil, class: icons(key)
     end
 
     # Returns an NYU Libraries content type figure for the given content type

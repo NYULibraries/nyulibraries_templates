@@ -424,6 +424,7 @@ describe NyulibrariesTemplates::HtmlHelper do
     before { allow(helper).to receive(:icons).with(key).and_return icon }
 
     it { is_expected.to have_tag("i", with: {class: icon}) }
+    it { is_expected.to include "</i>" } # needs closing tag
   end
 
   describe "content_type_tag" do
