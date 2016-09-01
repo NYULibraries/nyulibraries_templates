@@ -41,16 +41,20 @@ describe NyulibrariesTemplates::WorkspaceHelper do
 
   describe "guest_user_name" do
     subject{ helper.guest_user_name }
+    let(:guest_user_name_html){ "Some Guest" }
+    before { allow(helper).to receive(:t).with('workspace.guest_user_name_html').and_return guest_user_name_html }
 
-    it { is_expected.to eq "Guest" }
+    it { is_expected.to eq guest_user_name_html }
   end
 
   describe "workspace_header" do
     subject{ helper.workspace_header }
+    let(:header_html){ "This Is My Space" }
+    before { allow(helper).to receive(:t).with('workspace.header_html').and_return header_html }
 
     it "should have correct structure" do
       expect(subject).to have_tag "h2", with: {class: "workspace"} do
-        with_tag "span", text: " My Workspace"
+        with_tag "span", text: " #{header_html}"
       end
     end
   end

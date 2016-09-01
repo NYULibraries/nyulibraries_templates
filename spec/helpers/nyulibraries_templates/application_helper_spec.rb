@@ -22,8 +22,10 @@ describe NyulibrariesTemplates::ApplicationHelper do
 
   describe "application_title" do
     subject{ helper.application_title }
+    let(:title_html){ "My App" }
+    before { allow(helper).to receive(:t).with('application.title_html').and_return title_html }
 
-    it { is_expected.to eq "Dummy Application" }
+    it { is_expected.to eq title_html }
   end
 
   describe "application_stylesheet" do

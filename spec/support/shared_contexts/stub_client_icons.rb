@@ -1,6 +1,3 @@
-# ENGINE_ICON_PATH = File.expand_path(File.join(__FILE__, "../../../../config/icons.yml"))
-# CLIENT_ICON_PATH = File.join(Rails.root, "config", "icons.yml")
-
 RSpec.shared_context("stub client icons") do
   let(:client_icons){ {} }
   before do
