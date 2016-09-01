@@ -40,7 +40,7 @@ module NyulibrariesTemplates
           content_tag(:button, class: ["navbar-toggle", "collapsed"], type: "button", data: {toggle: "collapse", target: "##{id}.navbar-collapse"}) do
             content_tag(:span, nil, class: "icon-bar") + content_tag(:span, nil, class: "icon-bar")
           end + header
-        end + content_tag(:div, id: id, class: collapse_classes, style: style) { yield }
+        end + content_tag(:div, id: id, class: collapse_classes, style: style, &block)
       end
     end
 
@@ -105,7 +105,7 @@ module NyulibrariesTemplates
     # Load the local icons first and then the app icons if exist
     def icons_file
       @icons_file = YAML.load_file(ENGINE_ICON_PATH)
-      @icons_file.merge!(YAML.load_file(CLIENT_ICON_PATH)) if File.exists?(CLIENT_ICON_PATH)
+      @icons_file.merge!(YAML.load_file(CLIENT_ICON_PATH)) if File.exist?(CLIENT_ICON_PATH)
       return @icons_file
     end
 
@@ -119,7 +119,7 @@ module NyulibrariesTemplates
       raise ArgumentError, "content_type must be a string" unless content_type.is_a? String
       content_tag(:figure, class: "content-type") do
         content_tag(:i, nil, class: "icons-nyu-content-type-#{content_type.downcase}") +
-          content_tag(:figcaption, content_type.capitalize.gsub("_", " "))
+          content_tag(:figcaption, content_type.capitalize.tr("_", " "))
       end
     end
   end
