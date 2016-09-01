@@ -2,7 +2,11 @@ module NyulibrariesTemplates
   module WorkspaceHelper
     # Current user's name
     def current_user_name
-      "#{current_user.firstname} #{current_user.lastname}" if current_user
+      return unless defined?(current_user) && current_user
+      [
+        (current_user.firstname if current_user.respond_to?(:firstname)),
+        (current_user.lastname if current_user.respond_to?(:lastname)),
+      ].compact.join(" ")
     end
 
     # Guest name
