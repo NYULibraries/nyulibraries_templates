@@ -79,13 +79,10 @@ module NyulibrariesTemplates
     end
 
     def default_institution_data
-      YAML.load(File.open(default_institution_filename){|f| f.read }).with_indifferent_access
+      YAML.load(File.open(DEFAULT_INSTITUTION_FILE){|f| f.read }).with_indifferent_access
     end
 
-    def default_institution_filename
-      File.join("config", "default_institution.yml")
-    end
-
+    DEFAULT_INSTITUTION_FILE = File.expand_path(File.join(__FILE__, "..", "..", "..", "..", "config", "default_institution.yml"))
 
   end
 end
