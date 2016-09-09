@@ -1,7 +1,5 @@
 module NyulibrariesTemplates
   module InstitutionIntegrationHelper
-    include InstitutionVersionHelper
-
     def institution_home_title
       if institutions_included? && institution_views && institution_views["breadcrumbs"]
         institution_views["breadcrumbs"]["title"] || default_institution_data["breadcrumbs"]["title"]
@@ -58,6 +56,10 @@ module NyulibrariesTemplates
     end
 
     private
+
+    def institutions_included?
+      defined?(NyulibrariesInstitutions)
+    end
 
     def get_parent_home_title
       parent_breadcrumbs.try(:[], "title")

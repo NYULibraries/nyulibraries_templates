@@ -3,12 +3,9 @@ begin
 rescue LoadError
 end
 require 'nyulibraries_templates/version'
-require 'nyulibraries_templates/institution_version_helper'
 
 module NyulibrariesTemplates
   class << self
-    include NyulibrariesTemplates::InstitutionVersionHelper
-
     # modified from bootstrap-sass gem
     def load!
       register_rails_engine if rails?
@@ -16,11 +13,7 @@ module NyulibrariesTemplates
     end
 
     def warn_institution_version
-      if !institutions_defined?
-        warn "NyulibrariesInstitutions is not defined. Install gem 'nyulibraries_institutions' version >= #{MAJOR_VERSION_REQUIRED} to use institution functionality. Otherwise, layouts default to NYU."
-      elsif !institution_version_required?
-        warn "NyulibrariesInstitutions is defined with version < #{MAJOR_VERSION_REQUIRED}. Install gem 'nyulibraries_institutions' version >= #{MAJOR_VERSION_REQUIRED} to use institution functionality. Otherwise, layouts default to NYU."
-      end
+      warn "NyulibrariesInstitutions is not defined. Install gem 'nyulibraries_institutions' to use institution functionality. Otherwise, layouts default to NYU."
     end
 
     def rails?
@@ -28,6 +21,10 @@ module NyulibrariesTemplates
     end
 
     private
+
+    def institutions_included?
+      defined?(NyulibrariesInstitutions)
+    end
 
     def register_rails_engine
       require 'nyulibraries_templates/engine'

@@ -16,8 +16,6 @@ describe NyulibrariesTemplates::InstitutionIntegrationHelper do
     end
 
     context "without institution helpers" do
-      before { allow(helper).to receive(:institutions_included?).and_return false }
-
       it { is_expected.to eq "NYU Libraries" }
     end
   end
@@ -37,8 +35,6 @@ describe NyulibrariesTemplates::InstitutionIntegrationHelper do
     end
 
     context "without institution helpers" do
-      before { allow(helper).to receive(:institutions_included?).and_return false }
-
       it { is_expected.to eq "http://library.nyu.edu" }
     end
   end
@@ -83,8 +79,6 @@ describe NyulibrariesTemplates::InstitutionIntegrationHelper do
     end
 
     context "without institution helpers" do
-      before { allow(helper).to receive(:institutions_included?).and_return false }
-
       it { is_expected.to eq default_title }
     end
   end
@@ -129,8 +123,6 @@ describe NyulibrariesTemplates::InstitutionIntegrationHelper do
     end
 
     context "without institution helpers" do
-      before { allow(helper).to receive(:institutions_included?).and_return false }
-
       it { is_expected.to eq default_url }
     end
   end
@@ -155,8 +147,6 @@ describe NyulibrariesTemplates::InstitutionIntegrationHelper do
     end
 
     context "without institution helpers" do
-      before { allow(helper).to receive(:institutions_included?).and_return false }
-
       it { is_expected.to eq nil }
     end
   end
@@ -181,8 +171,6 @@ describe NyulibrariesTemplates::InstitutionIntegrationHelper do
     end
 
     context "without institution helpers" do
-      before { allow(helper).to receive(:institutions_included?).and_return false }
-
       it { is_expected.to eq default_url }
     end
   end
@@ -216,8 +204,6 @@ describe NyulibrariesTemplates::InstitutionIntegrationHelper do
     end
 
     context "without institution helpers" do
-      before { allow(helper).to receive(:institutions_included?).and_return false }
-
       it { is_expected.to eq default_alias }
     end
   end
