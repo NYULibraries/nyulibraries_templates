@@ -13,6 +13,8 @@ module NyulibrariesTemplates
         include NyulibrariesTemplates::BobcatHelper
         include NyulibrariesTemplates::FooterHelper
         include NyulibrariesTemplates::HtmlHelper
+        include NyulibrariesTemplates::InstitutionIntegrationHelper
+        include NyulibrariesTemplates::LoginHelper
         include NyulibrariesTemplates::PrintHelper
         include NyulibrariesTemplates::NavHelper
         include NyulibrariesTemplates::TabsHelper

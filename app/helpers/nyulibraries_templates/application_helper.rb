@@ -1,7 +1,7 @@
 module NyulibrariesTemplates
   module ApplicationHelper
     # This engine
-    def nyulibraries_templates
+    def nyulibraries_templates_engine
       ::Rails::Engine.subclasses.map(&:instance).find do |railtie|
         railtie.class.name.eql? NyulibrariesTemplates::Engine.name
       end
@@ -9,7 +9,7 @@ module NyulibrariesTemplates
 
     # Root of this engine
     def nyulibraries_templates_root
-      nyulibraries_templates.root unless nyulibraries_templates.blank?
+      nyulibraries_templates_engine.root unless nyulibraries_templates_engine.blank?
     end
 
     # Application title
@@ -37,26 +37,6 @@ module NyulibrariesTemplates
       tag(:meta, 'http-equiv' => "cleartype", :content => "on") +
       favicon_link_tag('https://library.nyu.edu/favicon.ico') +
       csrf_meta_tags
-    end
-
-    def institution_home_title
-      views["breadcrumbs"]["title"]
-    end
-
-    def institution_home_url
-      views["breadcrumbs"]["url"]
-    end
-
-    def parent_home_title
-      (current_institution.link_to_parent.present?) ? institutions[current_institution.link_to_parent.to_sym].views["breadcrumbs"]["title"] : institution_home_title
-    rescue NoMethodError
-      institution_home_title
-    end
-
-    def parent_home_url
-      (current_institution.link_to_parent.present?) ? institutions[current_institution.link_to_parent.to_sym].views["breadcrumbs"]["url"] : institution_home_url
-    rescue NoMethodError
-      institution_home_url
     end
 
     # Return true if delayed_jobs gem has any jobs running
