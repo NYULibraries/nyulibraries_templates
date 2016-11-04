@@ -8,28 +8,20 @@
   </head>
   <%= content_tag 'body', onload: onload, class: body_class, id: body_id do %>
     <%= prepend_body %>
-    {{> common/header}}
-    {{> common/nav}}
+    <%= render 'common/header' %>
+    <%= render 'common/nav' %>
     <div class="nyu-container">
-      {{#left_sidebar}}
-      <div class="col-sm-3">
-        {{> common/left_sidebar}}
+      <% if left_sidebar %>
+        <div class="col-sm-3">
+          <%= render 'common/left_sidebar' %>
+        </div>
+      <% end %>
+      <div class="col-sm-<%= left_sidebar ? 7 : 10 %>">
+        <%= render 'common/alerts' %>
+        <%= render 'common/tabs' %>
+        <%= prepend_yield  %>
+        <%= yield %>
       </div>
-      <div class="col-sm-7">
-        {{> common/alerts }}
-        {{> common/tabs}}
-        {{prepend_yield}}
-        {{yield}}
-      </div>
-      {{/left_sidebar}}
-      {{^left_sidebar}}
-      <div class="col-sm-10">
-        {{> common/alerts }}
-        {{> common/tabs}}
-        {{prepend_yield}}
-        {{yield}}
-      </div>
-      {{/left_sidebar}}
       <div class="col-sm-2">
         <div id="sidebar" class="sidebar">
           <%= render 'common/right_sidebar' %>
