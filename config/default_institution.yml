@@ -1,6 +1,7 @@
 name: NYU Libraries
 bobcat_url: http://bobcat.library.nyu.edu
 bobcat_alias: nyu
+eshelf_url: https://eshelf.library.nyu.edu
 breadcrumbs:
   title: NYU Libraries
   url: http://library.nyu.edu

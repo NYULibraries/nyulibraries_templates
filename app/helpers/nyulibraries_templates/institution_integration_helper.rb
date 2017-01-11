@@ -37,13 +37,19 @@ module NyulibrariesTemplates
       link_to(institution_views["breadcrumbs"]["title"], institution_views["breadcrumbs"]["url"])
     end
 
+    # Ensure there is always an eshelf url to show even if it isn't set anywhere
+    def eshelf_url
+      get_institution_or_default(:eshelf_url)
+    end
+
+    # Ensure there is always a my account url to show even if it isn't set anywhere
+    def my_account_url
+      get_institution_or_default(:eshelf_url) + '/account'
+    end
+
     # Ensure there is always a bobcat url to show even if it isn't set anywhere
     def bobcat_breadcrumb_base_url
-      if institutions_included?
-        current_institution.try(:bobcat_url) || default_institution_data["bobcat_url"]
-      else
-        default_institution_data["bobcat_url"]
-      end
+      get_institution_or_default(:bobcat_url)
     end
 
     # Ensure there is always an alias to show even if it isn't set anywhere
@@ -59,6 +65,14 @@ module NyulibrariesTemplates
 
     def institutions_included?
       defined?(NyulibrariesInstitutions)
+    end
+
+    def get_institution_or_default(field)
+      if institutions_included?
+        current_institution.try(field.to_sym) || default_institution_data[field.to_s]
+      else
+        default_institution_data[field.to_s]
+      end
     end
 
     def get_parent_home_title

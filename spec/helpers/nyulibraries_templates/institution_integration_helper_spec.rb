@@ -175,6 +175,16 @@ describe NyulibrariesTemplates::InstitutionIntegrationHelper do
     end
   end
 
+  describe "eshelf_url" do
+    subject{ helper.eshelf_url }
+    it { is_expected.to eql 'https://eshelf.library.nyu.edu' }
+  end
+
+  describe "my_account_url" do
+    subject{ helper.my_account_url }
+    it { is_expected.to eql 'https://eshelf.library.nyu.edu/account' }
+  end
+
   describe "bobcat_breadcrumb_alias" do
     subject{ helper.bobcat_breadcrumb_alias }
     let(:default_alias){ "nyu" }
