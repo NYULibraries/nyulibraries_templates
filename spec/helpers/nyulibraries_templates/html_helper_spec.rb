@@ -124,7 +124,7 @@ describe NyulibrariesTemplates::HtmlHelper do
         with_tag("button", with: {class: %w[btn btn-default], "data-toggle" => "dropdown"}) do
           with_text title
         end
-        with_tag("button", with: {class: %w[btn btn-default], "data-toggle" => "dropdown"}) do
+        with_tag("button", with: {class: %w[dropdown-toggle], "data-toggle" => "dropdown"}) do
           with_tag("span", with: {class: "caret"})
         end
         with_tag("ul", with: {class: "dropdown-menu", role: "menu"}) do
@@ -161,7 +161,7 @@ describe NyulibrariesTemplates::HtmlHelper do
           with_tag("button", with: {class: %w[btn btn-default], "data-toggle" => "dropdown"}) do
             with_text title
           end
-          with_tag("button", with: {class: %w[btn btn-default], "data-toggle" => "dropdown"}) do
+          with_tag("button", with: {class: %w[dropdown-toggle], "data-toggle" => "dropdown"}) do
             with_tag("span", with: {class: "caret"})
           end
           with_tag("ul", with: {class: "dropdown-menu", role: "menu"}) do
