@@ -34,6 +34,18 @@ describe NyulibrariesTemplates::FooterHelper do
     it { is_expected.to eq nil }
   end
 
+  describe "google_tag_manager?" do
+    subject{ helper.google_tag_manager? }
+
+    include_examples "truthy_iff_production"
+  end
+
+  describe "google_tag_manager_tracking_code" do
+    subject{ helper.google_tag_manager_tracking_code }
+
+    it { is_expected.to eq nil }
+  end
+
   describe "crazyegg?" do
     subject{ helper.crazyegg? }
 

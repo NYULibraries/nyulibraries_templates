@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= render 'common/google_tag_manager_script' %>
     <%= meta %>
     <title><%= application_title %></title>
     <%= application_stylesheet %>
     <%= application_javascript %>
   </head>
   <%= content_tag 'body', onload: onload, class: body_class, id: body_id do %>
+    <%= render 'common/google_tag_manager_noscript' %>
     <%= prepend_body %>
     <%= render 'common/header' %>
     <%= render 'common/nav' %>

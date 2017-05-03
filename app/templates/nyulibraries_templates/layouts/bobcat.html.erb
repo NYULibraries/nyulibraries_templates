@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= render 'common/google_tag_manager_script' %>
     <%= meta %>
     <title><%= bobcat_title %></title>
     <%= institutional_stylesheet %>
     <%= application_javascript %>
   </head>
   <body>
+    <%= render 'common/google_tag_manager_noscript' %>
     <%= render 'common/header' %>
     <%= render 'common/nav' %>
     <div class="nyu-container">

@@ -23,6 +23,15 @@ module NyulibrariesTemplates
     def google_analytics_tracking_code
     end
 
+    # Using Google Tag Manager? Only in production!
+    def google_tag_manager?
+      Rails.env.production?
+    end
+
+    # Placeholder.
+    def google_tag_manager_tracking_code
+    end
+
     # Using Crazyegg? Only in production! and when CRAZYEGG env var is set
     def crazyegg?
       ENV["CRAZYEGG"] && Rails.env.production?
