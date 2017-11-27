@@ -5,7 +5,6 @@
     <%= meta %>
     <title><%= bobcat_title %></title>
     <%= institutional_stylesheet %>
-    <%= print_stylesheet if print_stylesheet? %>
     <%= application_javascript %>
   </head>
   <body>
@@ -34,11 +33,11 @@
           </div>
           <div class="col-sm-9">
             <%= render 'common/alerts' %>
-            {{yield}}
+            <%= yield %>
           </div>
         </div>
       </div>
     </div>
-    {{> common/footer}}
+    <%= render 'common/footer' %>
   </body>
 </html>
