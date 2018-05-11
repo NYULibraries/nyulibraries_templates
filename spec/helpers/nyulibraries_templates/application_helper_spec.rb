@@ -51,7 +51,7 @@ describe NyulibrariesTemplates::ApplicationHelper do
     let(:favicon){ "--favicon--" }
     let(:csrf){ "--csrf--" }
     before do
-      allow(helper).to receive(:favicon_link_tag).with('https://library.nyu.edu/favicon.ico').and_return favicon
+      allow(helper).to receive(:favicon_link_tag).with('https://cdn.library.nyu.edu/images/favicon.ico').and_return favicon
       allow(helper).to receive(:csrf_meta_tags).and_return csrf
     end
 
