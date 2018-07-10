@@ -1,18 +1,16 @@
 <header id="header" class="header">
   <div class="parent">
-    <%= link_to parent_home_url do %>
-      <span><%= parent_home_title %></span>
+    <%= link_to parent_home_url, title: "#{parent_home_title} home" do %>
+      <h1 class="sr-only"><%= parent_home_title %></h1>
     <% end %>
   </div>
 
+  <% unless parent_home_title == institution_home_title %>
   <div class="institution">
-    <%= link_to institution_home_url do %>
-      <span><%= institution_home_title %></span>
+    <%= link_to institution_home_url, title: "#{institution_home_title} home" do %>
+      <div class="sr-only"><%= institution_home_title %></div>
     <% end %>
-    <span><%= institution.code %></span>
   </div>
+  <% end %>
 
-  <div class="application">
-    <span><%= application_title %></span>
-  </div>
 </header>
