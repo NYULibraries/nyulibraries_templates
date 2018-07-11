@@ -1,3 +1,4 @@
+<aside role="alert">
 <%- if flash[:alert].present? -%>
   <%= content_tag(:div, class: ["alert", "alert-danger", "fade", "in"]) do -%>
     <a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -16,3 +17,4 @@
     <%= content_tag :div, flash[:notice] -%>
   <%- end -%>
 <%- end -%>
+</aside>

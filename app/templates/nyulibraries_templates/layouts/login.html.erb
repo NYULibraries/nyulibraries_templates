@@ -9,12 +9,17 @@
   </head>
   <body class="login">
     <%= render 'common/google_tag_manager_noscript' %>
+
+    <div class="skip-nav">
+      <a href="#main">Skip to main content</a>
+    </div>
+
     <%= render "common/header" %>
     <%= render "common/nav" %>
-    <section class="nyu-container container-fluid">
+    <main id="main" class="nyu-container container-fluid">
       <%= render "common/alerts" %>
       <%= yield %>
-    </section>
+    </main>
     <%= render "common/footer" %>
   </body>
 </html>
