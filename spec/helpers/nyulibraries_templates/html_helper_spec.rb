@@ -454,4 +454,9 @@ describe NyulibrariesTemplates::HtmlHelper do
       end
     end
   end
+
+  describe "new_window_span" do
+    subject { helper.new_window_span }
+    it { is_expected.to eql '<span class="sr-only">(opens in a new window)</span>' }
+  end
 end

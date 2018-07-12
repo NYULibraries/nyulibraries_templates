@@ -71,6 +71,7 @@ describe NyulibrariesTemplates::FooterHelper do
   describe "footer_html" do
     subject{ helper.footer_html }
 
-    it { is_expected.to eq "NYU Division of Libraries" }
+    it { is_expected.to include "NYU Division of Libraries" }
+    it { is_expected.to include "<a href=\"https://www.nyu.edu/footer/accessibility.html\" target=\"_blank\">Accessibility <span class=\"sr-only\">(opens in a new window)</span></a>" }
   end
 end
