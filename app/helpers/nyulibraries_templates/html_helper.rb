@@ -122,5 +122,9 @@ module NyulibrariesTemplates
           content_tag(:figcaption, content_type.capitalize.tr("_", " "))
       end
     end
+
+    def new_window_span
+      content_tag(:span, t('application.new_window_text'), class: 'sr-only')
+    end
   end
 end

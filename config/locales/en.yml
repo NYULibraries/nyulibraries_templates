@@ -1,8 +1,9 @@
 en:
   footer:
-    footer_html: NYU Division of Libraries
+    footer_html: <p>NYU Division of Libraries. <a href="https://www.nyu.edu/footer/accessibility.html" target="_blank">Accessibility <span class="sr-only">(opens in a new window)</span></a></p>
   application:
     title_html: "Application Title (should be overridden in local application!)"
+    new_window_text: (opens in a new window)
   bobcat:
     title_html: BobCat
   workspace:
