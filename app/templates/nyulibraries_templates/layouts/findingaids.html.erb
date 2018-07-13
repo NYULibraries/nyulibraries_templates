@@ -9,10 +9,15 @@
   </head>
   <%= content_tag 'body', onload: onload, class: body_class, id: body_id do %>
     <%= render 'common/google_tag_manager_noscript' %>
+
+    <div class="skip-nav">
+      <a href="#main">Skip to main content</a>
+    </div>
+
     <%= prepend_body %>
     <%= render 'common/header' %>
     <%= render 'common/nav' %>
-    <div class="nyu-container">
+    <main id="main" class="nyu-container">
       <% if left_sidebar %>
         <div class="col-sm-3">
           <%= render 'common/left_sidebar' %>
@@ -29,7 +34,7 @@
           <%= render 'common/right_sidebar' %>
         </div>
       </div>
-    </div>
+    </main>
     <%= render 'common/footer' %>
   <% end %>
 </html>
