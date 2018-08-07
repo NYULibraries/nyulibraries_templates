@@ -9,3 +9,28 @@ gemspec
 # your gemspec. These might include edge Rails or gems from your path or
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
+
+group :development, :test do
+  # Allows for testing against multiple rails versions
+  rails_version = ENV["RAILS_VERSION"] || "default"
+
+  rails =
+    case rails_version
+    when "master"
+      { github: "rails/rails" }
+    when "default"
+      ">= 4"
+    else
+      "~> #{rails_version}"
+    end
+  gem "rails", rails
+
+  gem 'pry'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'coveralls'
+  gem 'test-unit'
+  gem 'sqlite3'
+  gem 'climate_control'
+  gem 'rspec-html-matchers'
+end
