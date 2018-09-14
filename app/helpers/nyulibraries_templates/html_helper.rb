@@ -37,7 +37,7 @@ module NyulibrariesTemplates
       end
       content_tag(:nav, class: ["navbar", "navbar-default"]) do
         content_tag(:div, class: "navbar-header") do
-          content_tag(:button, class: ["navbar-toggle", "collapsed"], type: "button", data: {toggle: "collapse", target: "##{id}.navbar-collapse"}) do
+          content_tag(:button, class: ["navbar-toggle", "collapsed"], type: "button", data: {toggle: "collapse", target: "##{id}.navbar-collapse"}, 'aria-label' => "Toggle menu - #{header}") do
             content_tag(:span, nil, class: "icon-bar") + content_tag(:span, nil, class: "icon-bar")
           end + header
         end + content_tag(:div, id: id, class: collapse_classes, style: style, &block)
