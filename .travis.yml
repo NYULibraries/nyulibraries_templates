@@ -11,3 +11,7 @@ env:
   - RAILS_VERSION=master
 script:
   - bundle exec rake
+matrix:
+  exclude:
+    - rvm: 2.3.7
+      env: RAILS_VERSION=master
