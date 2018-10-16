@@ -17,5 +17,5 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,lib}/**/**/*", "README.md"]
   s.test_files = Dir["spec/**/**/**/**/*"]
 
-  s.add_dependency "rails", '>= 4', '~> 5.2'
+  s.add_dependency "rails", '>= 4', '< 5.3'
 end
