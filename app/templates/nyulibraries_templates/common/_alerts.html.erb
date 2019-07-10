@@ -1,4 +1,5 @@
 <aside role="alert">
+<%= render 'common/persistent_alert' %>
 <%- if flash[:alert].present? -%>
   <%= content_tag(:div, class: ["alert", "alert-danger", "fade", "in"]) do -%>
     <a href="#" class="close" data-dismiss="alert">&times;</a>
