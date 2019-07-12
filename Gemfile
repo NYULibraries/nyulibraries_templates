@@ -30,7 +30,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'coveralls'
   gem 'test-unit'
-  gem 'sqlite3'
   gem 'climate_control'
   gem 'rspec-html-matchers'
+  gem 'sqlite3', '~> 1.3.6'
 end
