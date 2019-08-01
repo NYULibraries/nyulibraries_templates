@@ -14,7 +14,7 @@ module NyulibrariesTemplates
       return [] unless institutions_included? && institution_views.try(:[], "tabs")
       institution_views["tabs"].collect do |code, values|
         values["code"] = code
-        values["url"], values["klass"] = root_url, "active" if active_tab?(code) && defined?(root_url)
+        values["url"], values["klass"] = (values["url"]) ? values["url"] : root_url, "active" if active_tab?(code) && defined?(root_url)
         values["link"] = link_to_with_popover(values["display"], values["url"], values["tip"], "tab")
         values
       end

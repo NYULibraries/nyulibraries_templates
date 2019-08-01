@@ -1,3 +1,4 @@
+require 'rails_helper'
 module NyulibrariesTemplates
   module TabsHelper
     describe "tabs_header" do
@@ -41,10 +42,16 @@ module NyulibrariesTemplates
             let(:institution_views){ {"tabs" => tabs} }
 
             context "with complete data" do
+              let(:abcd) {
+                {"url" => "abc.example.com", "klass" => "abcde", "display" => true, "tip" => "Some text"}
+              }
+              let(:wxyz) {
+                {"url" => "xyz.example.com", "klass" => "vwxyz", "display" => false, "tip" => "Other text"}
+              }
               let(:tabs) do
                 {
-                  "abcd" => {"url" => "abc.example.com", "klass" => "abcde", "display" => true, "tip" => "Some text"},
-                  "wxyz" => {"url" => "xyz.example.com", "klass" => "vwxyz", "display" => false, "tip" => "Other text"},
+                  "abcd" => abcd,
+                  "wxyz" => wxyz,
                 }
               end
               before do
@@ -70,11 +77,28 @@ module NyulibrariesTemplates
                     "link" => helper.link_to_with_popover(true, "abc.example.com", "Some text", "tab")
                   }),
                   tabs["wxyz"].merge({
-                    "url" => "example.com",
-                    "link" => helper.link_to_with_popover(false, "example.com", "Other text", "tab")
+                    "url" => "xyz.example.com",
+                    "link" => helper.link_to_with_popover(false, "xyz.example.com", "Other text", "tab")
                   }),
                 ] }
+
+                context 'with blank url on active tab' do
+                  let(:wxyz) {
+                    {"klass" => "vwxyz", "display" => false, "tip" => "Other text"}
+                  }
+
+                  it { is_expected.to eq [
+                    tabs["abcd"].merge({
+                      "link" => helper.link_to_with_popover(true, "abc.example.com", "Some text", "tab")
+                    }),
+                    tabs["wxyz"].merge({
+                      "url" => "example.com",
+                      "link" => helper.link_to_with_popover(false, "example.com", "Other text", "tab")
+                    }),
+                  ] }
+                end
               end
+
             end
           end
 
