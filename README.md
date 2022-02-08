@@ -1,4 +1,4 @@
-# NyulibrariesTemplates
+# NyulibrariesTemplates 
 
 [![NYU](https://github.com/NYULibraries/nyulibraries_stylesheets/blob/master/app/assets/images/nyulibraries_stylesheets/nyu.png)](https://dev.library.nyu.edu)
 [![Build Status](https://travis-ci.org/NYULibraries/nyulibraries_templates.svg)](https://travis-ci.org/NYULibraries/nyulibraries_templates)
