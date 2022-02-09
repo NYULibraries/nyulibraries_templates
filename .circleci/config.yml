@@ -1,4 +1,4 @@
-build_and_push: &build_and_push
+build_and_push: &build_and_push 
   docker:
     - image: quay.io/nyulibraries/circleci_docker:18.06.1-dc-1.23.2-0
   working_directory: ~/app
