@@ -1,0 +1,12 @@
+ARG RUBY_VERSION
+
+FROM ruby:${RUBY_VERSION}
+
+COPY . .
+
+ARG RAILS_VERSION
+#ENV RAILS_VERSION $RAILS_VERSION
+
+RUN bundle install
+
+CMD ["bundle", "exec", "rake"]
