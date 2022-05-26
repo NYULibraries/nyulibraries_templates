@@ -31,7 +31,7 @@ group :development, :test do
   gem 'coveralls'
   gem 'test-unit'
   gem 'rb-readline'
-  gem 'climate_control', "~> 1.1.0"
+  gem 'climate_control', "~> 0.0.4"
   gem 'rspec-html-matchers'
   gem 'sqlite3', '~> 1.3.6'
 end
