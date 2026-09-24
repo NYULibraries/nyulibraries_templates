@@ -29,6 +29,11 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'coveralls'
+  gem 'bigdecimal', '< 2' # Rails 4.2 still calls BigDecimal.new.
+  if RUBY_VERSION.start_with?('2.4.')
+    gem 'term-ansicolor', '< 1.8' # Keep Coveralls compatible with Ruby 2.4.
+    gem 'loofah', '< 2.21' # Newer versions need Nokogiri::HTML4, unavailable on Ruby 2.4.
+  end
   gem 'test-unit'
   gem 'rb-readline'
   gem 'climate_control', "~> 0.0.4"
